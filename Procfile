@@ -1,1 +1,1 @@
-worker: python3 -m telegram_bot.interview_assistant_bot.py
+worker: python3 main.py

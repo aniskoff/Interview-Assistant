@@ -69,7 +69,7 @@ def create_keyboard_stages(stages):
 @bot.message_handler(commands=['start'])
 def welcome(message):
     # Send greeting sticker
-    sticker = open('resources/pictures/welcome.webp', 'rb')
+    sticker = open('bot_resources/pictures/welcome.webp', 'rb')
     bot.send_sticker(message.chat.id, sticker)
  
     # Create keyboard and buttons
@@ -170,9 +170,9 @@ def callback_handler(call):
                                           text="Unfortunately, there is no information about this. Try other options!")
 
             elif call.data == "memes":
-                gifs_names = extract_file_names('resources/gifs')
+                gifs_names = extract_file_names('bot_resources/gifs')
                 gif_name = random.choice(gifs_names)
-                gif = open(f'resources/gifs/{gif_name}', 'rb')
+                gif = open(f'bot_resources/gifs/{gif_name}', 'rb')
                 bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                                       text="Here is your gif 🙃")
                 bot.send_animation(call.message.chat.id, gif)
@@ -268,7 +268,7 @@ def message_handler(message):
     elif message.text == "Cat":
         bot.send_message(message.chat.id, text="I love cats!",
                          reply_markup=None)
-        sticker = open('resources/pictures/cat.webp', 'rb')
+        sticker = open('bot_resources/pictures/cat.webp', 'rb')
         bot.send_sticker(message.chat.id, sticker)
     else:
         text = "Я бот глупенький, давай общаться кнопками? 😊"
