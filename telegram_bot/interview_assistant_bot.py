@@ -8,8 +8,9 @@ from config import USER_NAME, DATABASE_NAME, PASSWORD, HOST_NAME, PORT
 
 # To load sql_server module
 import sys
-sys.path.insert(1, '../sql_server')
-from sql_server import *
+
+from sql_server.sql_server import read_table, register_user, insert_task, \
+    remove_task, delete_element, insert_element
 
 bot = telebot.TeleBot(config.API_KEY)
 # Connection to the database
